@@ -7,7 +7,8 @@ export const appConfig = {
     home: "/",
     features: "/#features",
     docs: "/docs",
-    login: "/login",
+    login: "/sign-in",
+    signup: "/sign-up",
     dashboard: "/dashboard",
   },
   developer: {
