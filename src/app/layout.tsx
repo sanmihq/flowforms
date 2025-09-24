@@ -3,6 +3,7 @@ import "./globals.css";
 import { fonts } from "./fonts/fonts";
 import { appConfig } from "./lib/data/appConfig";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +49,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${fonts.geist.className} antialiased`}>
-          {children}
+          <Providers>{children}</Providers>
         </body>
       </html>
     </ClerkProvider>
