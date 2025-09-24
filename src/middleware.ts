@@ -1,5 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { appConfig } from "./lib/data/appConfig";
+import { appConfig } from "./app/lib/data/appConfig";
 
 const isPublicRoute = createRouteMatcher([
   appConfig.links.home,
