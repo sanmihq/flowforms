@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { appConfig } from "./lib/data/appConfig";
+import { appConfig } from "../lib/data/appConfig";
 import { Button } from "@heroui/react";
 import { IconWrapper } from "@/components/shared/IconWrapper";
 import { Plus } from "lucide-react";
@@ -17,6 +17,7 @@ export default function Home() {
       >
         Get Started - It's Free
       </Button>
+      <p className="uppercase">This is the landing page</p>
     </div>
   );
 }

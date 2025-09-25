@@ -25,8 +25,8 @@ export const IconWrapper: React.FC<IconWrapperProps> = ({
   ...props
 }) => {
   const defaultProps = {
-    size: 16,
-    strokeWidth: 1.5,
+    size: 18,
+    strokeWidth: 1.7,
   };
 
   const colorClass = iconColors[color];

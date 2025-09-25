@@ -1,12 +1,15 @@
+// src/lib/data/appConfig.ts
+import { Metadata } from "next";
+
 export const appConfig = {
   name: "FlowForms",
   title: "FlowForms: Build forms that flow beautifully.",
   description:
     "Effortlessly create and manage beautiful forms with our minimalist, production-ready form builder.",
-  url: "https://flowforms.vercel.app", // Use your actual domain
+  url: "https://flowforms.vercel.app",
   authors: {
     name: "Sanmi Akinwunmi",
-    url: "https://sanmihq.com", // Your personal website
+    url: "https://sanmihq.com",
   },
   keywords: [
     "form builder",
@@ -21,7 +24,7 @@ export const appConfig = {
     home: "/",
     features: "/#features",
     docs: "/docs",
-    login: "/sign-in",
+    signin: "/sign-in",
     signup: "/sign-up",
     dashboard: "/dashboard",
     create: "/dashboard/create",
@@ -34,6 +37,60 @@ export const appConfig = {
       linkedin: "https://www.linkedin.com/in/sanmihq/",
     },
   },
+  ogImage: "/og-image.png",
+  twitterHandle: "@sanmi_hq",
+  // New dashboard-specific metadata
+  dashboard: {
+    title: "Dashboard",
+    description: "Manage your forms and data from your FlowForms dashboard.",
+  },
 };
 
 export type AppConfig = typeof appConfig;
+
+export const generateRootMetadata = (): Metadata => ({
+  title: {
+    default: appConfig.title,
+    template: `%s | ${appConfig.name}`,
+  },
+  description: appConfig.description,
+  keywords: appConfig.keywords,
+  authors: [{ name: appConfig.authors.name, url: appConfig.authors.url }],
+  creator: appConfig.creator,
+  themeColor: appConfig.themeColor,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: appConfig.url,
+    title: appConfig.title,
+    description: appConfig.description,
+    siteName: appConfig.name,
+    images: [
+      {
+        url: `${appConfig.url}${appConfig.ogImage}`,
+        width: 1200,
+        height: 630,
+        alt: appConfig.title,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: appConfig.title,
+    description: appConfig.description,
+    images: [`${appConfig.url}${appConfig.ogImage}`],
+    creator: appConfig.twitterHandle,
+  },
+});
+
+export const generateDashboardMetadata = (): Metadata => ({
+  title: {
+    template: `%s | ${appConfig.dashboard.title}`,
+    default: appConfig.dashboard.title,
+  },
+  description: appConfig.dashboard.description,
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
